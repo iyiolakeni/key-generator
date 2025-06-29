@@ -1,0 +1,26 @@
+{
+    "sourceFile": "tsconfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1751197326152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751197374249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,7 @@\n     \"strictNullChecks\": false,\r\n     \"noImplicitAny\": false,\r\n     \"strictBindCallApply\": false,\r\n     \"forceConsistentCasingInFileNames\": false,\r\n-    \"noFallthroughCasesInSwitch\": false,\r\n-    \"paths\": {\r\n-      \"src/*\": [\"src/*\"]\r\n-    }\r\n+    \"noFallthroughCasesInSwitch\": false\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1751197802791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,10 @@\n     \"strictNullChecks\": false,\r\n     \"noImplicitAny\": false,\r\n     \"strictBindCallApply\": false,\r\n     \"forceConsistentCasingInFileNames\": false,\r\n-    \"noFallthroughCasesInSwitch\": false\r\n+    \"noFallthroughCasesInSwitch\": false,\r\n+    \"paths\": {\r\n+      \"src/*\": [\"src/*\"]\r\n+    }\r\n   }\r\n }\r\n"
+                }
+            ],
+            "date": 1751197326152,
+            "name": "Commit-0",
+            "content": "{\r\n  \"compilerOptions\": {\r\n    \"module\": \"commonjs\",\r\n    \"declaration\": true,\r\n    \"removeComments\": true,\r\n    \"emitDecoratorMetadata\": true,\r\n    \"experimentalDecorators\": true,\r\n    \"allowSyntheticDefaultImports\": true,\r\n    \"target\": \"ES2021\",\r\n    \"sourceMap\": true,\r\n    \"outDir\": \"./dist\",\r\n    \"baseUrl\": \"./\",\r\n    \"incremental\": true,\r\n    \"skipLibCheck\": true,\r\n    \"strictNullChecks\": false,\r\n    \"noImplicitAny\": false,\r\n    \"strictBindCallApply\": false,\r\n    \"forceConsistentCasingInFileNames\": false,\r\n    \"noFallthroughCasesInSwitch\": false,\r\n    \"paths\": {\r\n      \"src/*\": [\"src/*\"]\r\n    }\r\n  }\r\n}\r\n"
+        }
+    ]
+}

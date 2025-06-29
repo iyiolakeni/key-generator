@@ -1,0 +1,22 @@
+{
+    "sourceFile": ".eslintrc.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1751194307069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751194370492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,6 +20,13 @@\n     '@typescript-eslint/interface-name-prefix': 'off',\r\n     '@typescript-eslint/explicit-function-return-type': 'off',\r\n     '@typescript-eslint/explicit-module-boundary-types': 'off',\r\n     '@typescript-eslint/no-explicit-any': 'off',\r\n+    'prettier/prettier': [\r\n+      'error',\r\n+      {\r\n+        endOfLine: 'auto', // Resolves potential line ending conflicts\r\n+        arrowParens: 'always',\r\n+      },\r\n+    ],\r\n   },\r\n };\r\n"
+                }
+            ],
+            "date": 1751194307069,
+            "name": "Commit-0",
+            "content": "module.exports = {\r\n  parser: '@typescript-eslint/parser',\r\n  parserOptions: {\r\n    project: 'tsconfig.json',\r\n    tsconfigRootDir: __dirname,\r\n    sourceType: 'module',\r\n  },\r\n  plugins: ['@typescript-eslint/eslint-plugin'],\r\n  extends: [\r\n    'plugin:@typescript-eslint/recommended',\r\n    'plugin:prettier/recommended',\r\n  ],\r\n  root: true,\r\n  env: {\r\n    node: true,\r\n    jest: true,\r\n  },\r\n  ignorePatterns: ['.eslintrc.js'],\r\n  rules: {\r\n    '@typescript-eslint/interface-name-prefix': 'off',\r\n    '@typescript-eslint/explicit-function-return-type': 'off',\r\n    '@typescript-eslint/explicit-module-boundary-types': 'off',\r\n    '@typescript-eslint/no-explicit-any': 'off',\r\n  },\r\n};\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/key/enum.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1751194750131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1751194750131,
+            "name": "Commit-0",
+            "content": "export enum KeyType {\r\n  API_KEY = 'api_key',\r\n  JWT_SECRET = 'jwt_secret',\r\n  ENCRYPTION_KEY = 'encryption_key',\r\n  RANDOM_TOKEN = 'random_token',\r\n  UUID = 'uuid',\r\n  CUSTOM = 'custom',\r\n}\r\n"
+        }
+    ]
+}

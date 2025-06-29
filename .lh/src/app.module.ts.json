@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app.module.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1751196458683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751196781820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,11 @@\n     }),\r\n     TypeOrmModule.forRoot({\r\n       type: 'postgres',\r\n       url: process.env.DATABASE_URL,\r\n-      ssl: true,\r\n+      ssl: {\r\n+        rejectUnauthorized: false,\r\n+      },\r\n       entities: ['src/**/entities/*.entity{.ts}'],\r\n       synchronize: false,\r\n       autoLoadEntities: true,\r\n       migrationsRun: true,\r\n"
+                },
+                {
+                    "date": 1751196811331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,8 @@\n     }),\r\n     TypeOrmModule.forRoot({\r\n       type: 'postgres',\r\n       url: process.env.DATABASE_URL,\r\n-      ssl: {\r\n-        rejectUnauthorized: false,\r\n-      },\r\n       entities: ['src/**/entities/*.entity{.ts}'],\r\n       synchronize: false,\r\n       autoLoadEntities: true,\r\n       migrationsRun: true,\r\n"
+                },
+                {
+                    "date": 1751196902599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,11 @@\n import { KeyModule } from './key/key.module';\r\n import { ApplicationModule } from './application/application.module';\r\n import { ConfigModule } from '@nestjs/config';\r\n import { TypeOrmModule } from '@nestjs/typeorm';\r\n+import { config } from 'dotenv';\r\n \r\n+config();\r\n @Module({\r\n   imports: [\r\n     ConfigModule.forRoot({\r\n       isGlobal: true,\r\n"
+                }
+            ],
+            "date": 1751196458683,
+            "name": "Commit-0",
+            "content": "import { Module } from '@nestjs/common';\r\nimport { AppController } from './app.controller';\r\nimport { AppService } from './app.service';\r\nimport { KeyModule } from './key/key.module';\r\nimport { ApplicationModule } from './application/application.module';\r\nimport { ConfigModule } from '@nestjs/config';\r\nimport { TypeOrmModule } from '@nestjs/typeorm';\r\n\r\n@Module({\r\n  imports: [\r\n    ConfigModule.forRoot({\r\n      isGlobal: true,\r\n    }),\r\n    TypeOrmModule.forRoot({\r\n      type: 'postgres',\r\n      url: process.env.DATABASE_URL,\r\n      ssl: true,\r\n      entities: ['src/**/entities/*.entity{.ts}'],\r\n      synchronize: false,\r\n      autoLoadEntities: true,\r\n      migrationsRun: true,\r\n    }),\r\n    KeyModule,\r\n    ApplicationModule,\r\n  ],\r\n  controllers: [AppController],\r\n  providers: [AppService],\r\n})\r\nexport class AppModule {}\r\n"
+        }
+    ]
+}

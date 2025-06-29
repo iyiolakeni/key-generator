@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/key/dto/create-key.dto.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1751201518983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751203617405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   applicationId: string;\r\n \r\n   @ApiProperty()\r\n   @IsEnum(KeyType)\r\n-  keyType: KeyType;\r\n+  type: KeyType;\r\n \r\n   @ApiProperty({ required: false })\r\n   @IsString()\r\n   @IsOptional()\r\n"
+                }
+            ],
+            "date": 1751201518983,
+            "name": "Commit-0",
+            "content": "import { ApiProperty } from '@nestjs/swagger';\r\nimport {\r\n  IsBoolean,\r\n  IsDateString,\r\n  IsEnum,\r\n  IsInt,\r\n  IsObject,\r\n  IsOptional,\r\n  IsString,\r\n  Max,\r\n  Min,\r\n} from 'class-validator';\r\nimport { KeyType } from '../enum';\r\n\r\nexport class CreateKeyDto {\r\n  @ApiProperty()\r\n  @IsString()\r\n  name: string;\r\n\r\n  @ApiProperty()\r\n  @IsString()\r\n  applicationId: string;\r\n\r\n  @ApiProperty()\r\n  @IsEnum(KeyType)\r\n  keyType: KeyType;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsString()\r\n  @IsOptional()\r\n  description?: string;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsBoolean()\r\n  @IsOptional()\r\n  isActive?: boolean;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsDateString()\r\n  expiresAt?: Date;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsObject()\r\n  metadata?: Record<string, any>;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsInt()\r\n  @Min(8)\r\n  @Max(256)\r\n  length?: number;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsString()\r\n  prefix?: string;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsString()\r\n  suffix?: string;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsBoolean()\r\n  includeNumbers?: boolean;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsBoolean()\r\n  includeSymbols?: boolean;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsBoolean()\r\n  includeUppercase?: boolean;\r\n\r\n  @ApiProperty({ required: false })\r\n  @IsOptional()\r\n  @IsBoolean()\r\n  includeLowercase?: boolean;\r\n}\r\n"
+        }
+    ]
+}

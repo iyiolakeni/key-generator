@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/key/entities/key.entity.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1751194206079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751194931526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,44 @@\n-import { Entity } from 'typeorm';\r\n+import {\r\n+  Column,\r\n+  CreateDateColumn,\r\n+  Entity,\r\n+  PrimaryGeneratedColumn,\r\n+  UpdateDateColumn,\r\n+} from 'typeorm';\r\n+import { KeyType } from '../enum';\r\n \r\n @Entity()\r\n-export class Key {}\r\n+export class Key {\r\n+  @PrimaryGeneratedColumn()\r\n+  id: string;\r\n+\r\n+  @Column()\r\n+  name: string;\r\n+\r\n+  @Column({\r\n+    type: 'simple-enum',\r\n+    enum: KeyType,\r\n+  })\r\n+  type: KeyType;\r\n+\r\n+  @Column({ type: 'text' })\r\n+  value: string;\r\n+\r\n+  @Column({ nullable: true })\r\n+  description?: string;\r\n+\r\n+  @Column({ default: true })\r\n+  isActive: boolean;\r\n+\r\n+  @Column({ nullable: true })\r\n+  expiresAt?: Date;\r\n+\r\n+  @Column({ type: 'json', nullable: true })\r\n+  metadata?: Record<string, any>;\r\n+\r\n+  @CreateDateColumn()\r\n+  createdAt: Date;\r\n+\r\n+  @UpdateDateColumn()\r\n+  updatedAt: Date;\r\n+}\r\n"
+                },
+                {
+                    "date": 1751195298919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,15 @@\n import {\r\n   Column,\r\n   CreateDateColumn,\r\n   Entity,\r\n+  ManyToOne,\r\n   PrimaryGeneratedColumn,\r\n   UpdateDateColumn,\r\n } from 'typeorm';\r\n import { KeyType } from '../enum';\r\n+import { Application } from 'src/application/entities/application.entity';\r\n+import { application } from 'express';\r\n \r\n @Entity()\r\n export class Key {\r\n   @PrimaryGeneratedColumn()\r\n@@ -40,5 +43,11 @@\n   createdAt: Date;\r\n \r\n   @UpdateDateColumn()\r\n   updatedAt: Date;\r\n+\r\n+  @ManyToOne(() => Application, (application) => application.keys)\r\n+  application: Application;\r\n+\r\n+  @Column()\r\n+  applicationId: string;\r\n }\r\n"
+                },
+                {
+                    "date": 1751195304120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n   UpdateDateColumn,\r\n } from 'typeorm';\r\n import { KeyType } from '../enum';\r\n import { Application } from 'src/application/entities/application.entity';\r\n-import { application } from 'express';\r\n \r\n @Entity()\r\n export class Key {\r\n   @PrimaryGeneratedColumn()\r\n"
+                },
+                {
+                    "date": 1751196020203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import {\r\n   Column,\r\n   CreateDateColumn,\r\n   Entity,\r\n+  JoinColumn,\r\n   ManyToOne,\r\n   PrimaryGeneratedColumn,\r\n   UpdateDateColumn,\r\n } from 'typeorm';\r\n@@ -10,9 +11,9 @@\n import { Application } from 'src/application/entities/application.entity';\r\n \r\n @Entity()\r\n export class Key {\r\n-  @PrimaryGeneratedColumn()\r\n+  @PrimaryGeneratedColumn('uuid')\r\n   id: string;\r\n \r\n   @Column()\r\n   name: string;\r\n@@ -44,8 +45,9 @@\n   @UpdateDateColumn()\r\n   updatedAt: Date;\r\n \r\n   @ManyToOne(() => Application, (application) => application.keys)\r\n+  @JoinColumn({ name: 'applicationId' })\r\n   application: Application;\r\n \r\n   @Column()\r\n   applicationId: string;\r\n"
+                }
+            ],
+            "date": 1751194206079,
+            "name": "Commit-0",
+            "content": "import { Entity } from 'typeorm';\r\n\r\n@Entity()\r\nexport class Key {}\r\n"
+        }
+    ]
+}

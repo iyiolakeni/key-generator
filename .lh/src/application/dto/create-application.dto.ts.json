@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/application/dto/create-application.dto.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1751198863480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1751198863480,
+            "name": "Commit-0",
+            "content": "import { ApiProperty } from '@nestjs/swagger';\r\n\r\nexport class CreateApplicationDto {\r\n  @ApiProperty()\r\n  name: string;\r\n\r\n  @ApiProperty({ required: false })\r\n  description?: string;\r\n}\r\n"
+        }
+    ]
+}

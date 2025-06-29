@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/key/key.controller.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1751210241069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1751210241069,
+            "name": "Commit-0",
+            "content": "import {\r\n  Controller,\r\n  Get,\r\n  Post,\r\n  Body,\r\n  Patch,\r\n  Param,\r\n  Delete,\r\n} from '@nestjs/common';\r\nimport { KeyService } from './key.service';\r\nimport { CreateKeyDto } from './dto/create-key.dto';\r\nimport { UpdateKeyDto } from './dto/update-key.dto';\r\n\r\n@Controller('key')\r\nexport class KeyController {\r\n  constructor(private readonly keyService: KeyService) {}\r\n\r\n  @Post('create')\r\n  create(@Body() createKeyDto: CreateKeyDto) {\r\n    return this.keyService.create(createKeyDto);\r\n  }\r\n\r\n  @Get('getAll')\r\n  findAll() {\r\n    return this.keyService.findAll();\r\n  }\r\n\r\n  @Get('get-by/:id')\r\n  findOne(@Param('id') id: string) {\r\n    return this.keyService.findOne(id);\r\n  }\r\n\r\n  @Patch('update/:id')\r\n  update(@Param('id') id: string, @Body() updateKeyDto: UpdateKeyDto) {\r\n    return this.keyService.update(id, updateKeyDto);\r\n  }\r\n\r\n  @Get('get-by-application/:applicationId')\r\n  findByApplication(@Param('applicationId') applicationId: string) {\r\n    return this.keyService.getAllKeysByApplicationId(applicationId);\r\n  }\r\n\r\n  @Post('activate/:id')\r\n  activate(@Param('id') id: string) {\r\n    return this.keyService.activateKey(id);\r\n  }\r\n\r\n  @Post('deactivate/:id')\r\n  deactivate(@Param('id') id: string) {\r\n    return this.keyService.deactivateKey(id);\r\n  }\r\n\r\n  @Post('deactivate-expired')\r\n  deactivateExpired() {\r\n    return this.keyService.deactivateExpiredKeys();\r\n  }\r\n\r\n  @Delete('delete/:id')\r\n  remove(@Param('id') id: string) {\r\n    return this.keyService.remove(id);\r\n  }\r\n}\r\n"
+        }
+    ]
+}

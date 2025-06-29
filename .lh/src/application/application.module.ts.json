@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/application/application.module.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1751197116806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751210429236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,12 @@\n import { ApplicationService } from './application.service';\r\n import { ApplicationController } from './application.controller';\r\n import { TypeOrmModule } from '@nestjs/typeorm';\r\n import { Application } from './entities/application.entity';\r\n+import { SharedModule } from 'src/shared/shared.module';\r\n \r\n @Module({\r\n-  imports: [TypeOrmModule.forFeature([Application])],\r\n+  imports: [TypeOrmModule.forFeature([Application]), SharedModule],\r\n   controllers: [ApplicationController],\r\n   providers: [ApplicationService],\r\n })\r\n export class ApplicationModule {}\r\n"
+                }
+            ],
+            "date": 1751197116806,
+            "name": "Commit-0",
+            "content": "import { Module } from '@nestjs/common';\r\nimport { ApplicationService } from './application.service';\r\nimport { ApplicationController } from './application.controller';\r\nimport { TypeOrmModule } from '@nestjs/typeorm';\r\nimport { Application } from './entities/application.entity';\r\n\r\n@Module({\r\n  imports: [TypeOrmModule.forFeature([Application])],\r\n  controllers: [ApplicationController],\r\n  providers: [ApplicationService],\r\n})\r\nexport class ApplicationModule {}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/key/key.module.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1751197148798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751210315967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,12 @@\n import { KeyService } from './key.service';\r\n import { KeyController } from './key.controller';\r\n import { TypeOrmModule } from '@nestjs/typeorm';\r\n import { Key } from './entities/key.entity';\r\n+import { SharedModule } from 'src/shared/shared.module';\r\n \r\n @Module({\r\n-  imports: [TypeOrmModule.forFeature([Key])],\r\n+  imports: [TypeOrmModule.forFeature([Key]), SharedModule],\r\n   controllers: [KeyController],\r\n   providers: [KeyService],\r\n })\r\n export class KeyModule {}\r\n"
+                }
+            ],
+            "date": 1751197148798,
+            "name": "Commit-0",
+            "content": "import { Module } from '@nestjs/common';\r\nimport { KeyService } from './key.service';\r\nimport { KeyController } from './key.controller';\r\nimport { TypeOrmModule } from '@nestjs/typeorm';\r\nimport { Key } from './entities/key.entity';\r\n\r\n@Module({\r\n  imports: [TypeOrmModule.forFeature([Key])],\r\n  controllers: [KeyController],\r\n  providers: [KeyService],\r\n})\r\nexport class KeyModule {}\r\n"
+        }
+    ]
+}

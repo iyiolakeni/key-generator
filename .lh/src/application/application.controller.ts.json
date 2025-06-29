@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/application/application.controller.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1751199675913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751199681684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,5 @@\n-import {\r\n-  Controller,\r\n-  Get,\r\n-  Post,\r\n-  Body,\r\n-  Patch,\r\n-  Param,\r\n-  Delete,\r\n-} from '@nestjs/common';\r\n+import { Controller, Get, Post, Body, Patch, Param } from '@nestjs/common';\r\n import { ApplicationService } from './application.service';\r\n import { CreateApplicationDto } from './dto/create-application.dto';\r\n import { UpdateApplicationDto } from './dto/update-application.dto';\r\n \r\n"
+                }
+            ],
+            "date": 1751199675913,
+            "name": "Commit-0",
+            "content": "import {\r\n  Controller,\r\n  Get,\r\n  Post,\r\n  Body,\r\n  Patch,\r\n  Param,\r\n  Delete,\r\n} from '@nestjs/common';\r\nimport { ApplicationService } from './application.service';\r\nimport { CreateApplicationDto } from './dto/create-application.dto';\r\nimport { UpdateApplicationDto } from './dto/update-application.dto';\r\n\r\n@Controller('application')\r\nexport class ApplicationController {\r\n  constructor(private readonly applicationService: ApplicationService) {}\r\n\r\n  @Post('create')\r\n  create(@Body() createApplicationDto: CreateApplicationDto) {\r\n    return this.applicationService.create(createApplicationDto);\r\n  }\r\n\r\n  @Get('getAll')\r\n  findAll() {\r\n    return this.applicationService.findAll();\r\n  }\r\n\r\n  @Get('get-by/:id')\r\n  findOne(@Param('id') id: string) {\r\n    return this.applicationService.findOne(+id);\r\n  }\r\n\r\n  @Patch('updated/:id')\r\n  update(\r\n    @Param('id') id: string,\r\n    @Body() updateApplicationDto: UpdateApplicationDto,\r\n  ) {\r\n    return this.applicationService.update(id, updateApplicationDto);\r\n  }\r\n\r\n  @Patch('activate/:id')\r\n  activate(@Param('id') id: string) {\r\n    return this.applicationService.activate(id);\r\n  }\r\n\r\n  @Patch('activate/:id')\r\n  deActivate(@Param('id') id: string) {\r\n    return this.applicationService.deActivate(id);\r\n  }\r\n}\r\n"
+        }
+    ]
+}

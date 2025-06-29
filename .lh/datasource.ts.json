@@ -1,0 +1,38 @@
+{
+    "sourceFile": "datasource.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1751196781812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751196819023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,8 @@\n \r\n export default new DataSource({\r\n   type: 'postgres',\r\n   url: process.env.DATABASE_URL,\r\n-  ssl: {\r\n-    rejectUnauthorized: false, // Set to true if you want to enforce SSL certificate validation\r\n-  },\r\n   entities: ['src/**/entities/*.entity{.ts}'],\r\n   migrations: ['src/migrations/*.ts'],\r\n   synchronize: false,\r\n });\r\n"
+                },
+                {
+                    "date": 1751196903188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n import { DataSource } from 'typeorm';\r\n+import { config } from 'dotenv';\r\n \r\n+config(); // Load environment variables from .env file\r\n+\r\n export default new DataSource({\r\n   type: 'postgres',\r\n   url: process.env.DATABASE_URL,\r\n   entities: ['src/**/entities/*.entity{.ts}'],\r\n"
+                },
+                {
+                    "date": 1751197021086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n import { DataSource } from 'typeorm';\r\n import { config } from 'dotenv';\r\n+import { Application } from 'src/application/entities/application.entity';\r\n+import { Key } from 'src/key/entities/key.entity';\r\n \r\n config(); // Load environment variables from .env file\r\n \r\n export default new DataSource({\r\n   type: 'postgres',\r\n   url: process.env.DATABASE_URL,\r\n-  entities: ['src/**/entities/*.entity{.ts}'],\r\n+  entities: [Application, Key],\r\n   migrations: ['src/migrations/*.ts'],\r\n   synchronize: false,\r\n });\r\n"
+                },
+                {
+                    "date": 1751197332172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { DataSource } from 'typeorm';\r\n import { config } from 'dotenv';\r\n-import { Application } from 'src/application/entities/application.entity';\r\n-import { Key } from 'src/key/entities/key.entity';\r\n+import { Application } from './src/application/entities/application.entity';\r\n+import { Key } from './src/key/entities/key.entity';\r\n \r\n config(); // Load environment variables from .env file\r\n \r\n export default new DataSource({\r\n"
+                },
+                {
+                    "date": 1751197424574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n import { DataSource } from 'typeorm';\r\n import { config } from 'dotenv';\r\n-import { Application } from './src/application/entities/application.entity';\r\n-import { Key } from './src/key/entities/key.entity';\r\n \r\n config(); // Load environment variables from .env file\r\n \r\n export default new DataSource({\r\n   type: 'postgres',\r\n   url: process.env.DATABASE_URL,\r\n-  entities: [Application, Key],\r\n+  entities: [\r\n+    'src/application/entities/application.entity.ts',\r\n+    'src/key/entities/key.entity.ts',\r\n+  ],\r\n   migrations: ['src/migrations/*.ts'],\r\n   synchronize: false,\r\n });\r\n"
+                }
+            ],
+            "date": 1751196781812,
+            "name": "Commit-0",
+            "content": "import { DataSource } from 'typeorm';\r\n\r\nexport default new DataSource({\r\n  type: 'postgres',\r\n  url: process.env.DATABASE_URL,\r\n  ssl: {\r\n    rejectUnauthorized: false, // Set to true if you want to enforce SSL certificate validation\r\n  },\r\n  entities: ['src/**/entities/*.entity{.ts}'],\r\n  migrations: ['src/migrations/*.ts'],\r\n  synchronize: false,\r\n});\r\n"
+        }
+    ]
+}

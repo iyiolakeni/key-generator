@@ -1,0 +1,18 @@
+{
+    "sourceFile": "datasoure.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1751196247553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1751196247553,
+            "name": "Commit-0",
+            "content": "import { DataSource } from 'typeorm';\r\n\r\nexport default new DataSource({\r\n  type: 'postgres',\r\n  url: process.env.DATABASE_URL,\r\n  ssl: true,\r\n  entities: ['src/**/entities/*.entity{.ts}'],\r\n  migrations: ['src/migrations/*.ts'],\r\n  synchronize: false,\r\n});\r\n"
+        }
+    ]
+}

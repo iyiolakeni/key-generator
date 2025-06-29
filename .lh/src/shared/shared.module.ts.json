@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/shared/shared.module.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1751202266328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751210283112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,8 @@\n import { Application } from 'src/application/entities/application.entity';\r\n \r\n @Module({\r\n   imports: [TypeOrmModule.forFeature([Key, Application])],\r\n+  providers: [SharedService],\r\n   exports: [SharedService, TypeOrmModule.forFeature([Key, Application])],\r\n })\r\n export class SharedModule {}\r\n"
+                }
+            ],
+            "date": 1751202266328,
+            "name": "Commit-0",
+            "content": "import { Module } from '@nestjs/common';\r\nimport { SharedService } from './shared.service';\r\nimport { TypeOrmModule } from '@nestjs/typeorm';\r\nimport { Key } from 'src/key/entities/key.entity';\r\nimport { Application } from 'src/application/entities/application.entity';\r\n\r\n@Module({\r\n  imports: [TypeOrmModule.forFeature([Key, Application])],\r\n  exports: [SharedService, TypeOrmModule.forFeature([Key, Application])],\r\n})\r\nexport class SharedModule {}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/application/entities/application.entity.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1751195314572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751196020204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n } from 'typeorm';\r\n \r\n @Entity()\r\n export class Application {\r\n-  @PrimaryGeneratedColumn()\r\n+  @PrimaryGeneratedColumn('uuid')\r\n   id: string;\r\n \r\n   @Column()\r\n   name: string;\r\n"
+                }
+            ],
+            "date": 1751195314572,
+            "name": "Commit-0",
+            "content": "import { Key } from 'src/key/entities/key.entity';\r\nimport {\r\n  Column,\r\n  CreateDateColumn,\r\n  Entity,\r\n  OneToMany,\r\n  PrimaryGeneratedColumn,\r\n  UpdateDateColumn,\r\n} from 'typeorm';\r\n\r\n@Entity()\r\nexport class Application {\r\n  @PrimaryGeneratedColumn()\r\n  id: string;\r\n\r\n  @Column()\r\n  name: string;\r\n\r\n  @Column({ type: 'text', nullable: true })\r\n  description?: string;\r\n\r\n  @Column({ default: true })\r\n  isActive: boolean;\r\n\r\n  @CreateDateColumn()\r\n  createdAt: Date;\r\n\r\n  @UpdateDateColumn()\r\n  updatedAt: Date;\r\n\r\n  @OneToMany(() => Key, (key) => key.application, {\r\n    cascade: true,\r\n  })\r\n  keys: Key[];\r\n}\r\n"
+        }
+    ]
+}
