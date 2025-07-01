@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1751199675913,
@@ -12,6 +12,10 @@
                 {
                     "date": 1751199681684,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,5 @@\n-import {\r\n-  Controller,\r\n-  Get,\r\n-  Post,\r\n-  Body,\r\n-  Patch,\r\n-  Param,\r\n-  Delete,\r\n-} from '@nestjs/common';\r\n+import { Controller, Get, Post, Body, Patch, Param } from '@nestjs/common';\r\n import { ApplicationService } from './application.service';\r\n import { CreateApplicationDto } from './dto/create-application.dto';\r\n import { UpdateApplicationDto } from './dto/update-application.dto';\r\n \r\n"
+                },
+                {
+                    "date": 1751371555685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { Controller, Get, Post, Body, Patch, Param } from '@nestjs/common';\r\n+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';\r\n import { ApplicationService } from './application.service';\r\n import { CreateApplicationDto } from './dto/create-application.dto';\r\n import { UpdateApplicationDto } from './dto/update-application.dto';\r\n \r\n@@ -34,9 +34,14 @@\n   activate(@Param('id') id: string) {\r\n     return this.applicationService.activate(id);\r\n   }\r\n \r\n-  @Patch('activate/:id')\r\n+  @Patch('deactivate/:id')\r\n   deActivate(@Param('id') id: string) {\r\n     return this.applicationService.deActivate(id);\r\n   }\r\n+\r\n+  @Delete('delete/:id')\r\n+  delete(@Param('id') id: string) {\r\n+    return this.applicationService.delete(id);\r\n+  }\r\n }\r\n"
                 }
             ],
             "date": 1751199675913,

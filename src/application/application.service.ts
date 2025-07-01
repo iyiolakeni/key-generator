@@ -174,4 +174,28 @@ export class ApplicationService {
       );
     }
   }
+
+  async delete(
+    id: string,
+  ): Promise<
+    UpdatedResponse | NotFoundErrorResponse | UnexpectedErrorResponse
+  > {
+    const application = await this.appRepo.findOne({ where: { id } });
+
+    if (!application) {
+      return new NotFoundErrorResponse(`Application with id ${id} not found`);
+    }
+
+    try {
+      await this.appRepo.delete(id);
+      return new UpdatedResponse(
+        `Application with id ${id} deleted successfully`,
+        200,
+      );
+    } catch (error) {
+      return new UnexpectedErrorResponse(
+        `Failed to delete application with id ${id}: ${error.message}`,
+      );
+    }
+  }
 }

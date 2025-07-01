@@ -3,11 +3,27 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1751198863480,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751365697373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,13 @@\n import { ApiProperty } from '@nestjs/swagger';\r\n+import { EnvironmentType } from 'src/key/enum';\r\n \r\n export class CreateApplicationDto {\r\n   @ApiProperty()\r\n   name: string;\r\n \r\n   @ApiProperty({ required: false })\r\n   description?: string;\r\n+\r\n+  @ApiProperty()\r\n+  environment: EnvironmentType;\r\n }\r\n"
+                },
+                {
+                    "date": 1751375517702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { ApiProperty } from '@nestjs/swagger';\r\n+import { IsEnum } from 'class-validator';\r\n import { EnvironmentType } from 'src/key/enum';\r\n \r\n export class CreateApplicationDto {\r\n   @ApiProperty()\r\n@@ -8,6 +9,7 @@\n   @ApiProperty({ required: false })\r\n   description?: string;\r\n \r\n   @ApiProperty()\r\n+    @IsEnum()\r\n   environment: EnvironmentType;\r\n }\r\n"
+                },
+                {
+                    "date": 1751375524886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,7 +9,7 @@\n   @ApiProperty({ required: false })\r\n   description?: string;\r\n \r\n   @ApiProperty()\r\n-  @IsEnum()\r\n+  @IsEnum(EnvironmentType)\r\n   environment: EnvironmentType;\r\n }\r\n"
+                },
+                {
+                    "date": 1751375605095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,16 @@\n import { ApiProperty } from '@nestjs/swagger';\r\n-import { IsEnum } from 'class-validator';\r\n+import { IsEnum, IsOptional, IsString } from 'class-validator';\r\n import { EnvironmentType } from 'src/key/enum';\r\n \r\n export class CreateApplicationDto {\r\n   @ApiProperty()\r\n-  name: string;\r\n-\r\n-  @ApiProperty({ required: false })\r\n+    @IsString()\r\n+    name: string;\r\n+    \r\n+    @ApiProperty({ required: false })\r\n+    @IsString()\r\n+      @IsOptional()\r\n   description?: string;\r\n \r\n   @ApiProperty()\r\n   @IsEnum(EnvironmentType)\r\n"
                 }
             ],
             "date": 1751198863480,

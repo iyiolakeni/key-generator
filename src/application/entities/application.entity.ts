@@ -1,4 +1,5 @@
 import { Key } from 'src/key/entities/key.entity';
+import { EnvironmentType } from 'src/key/enum';
 import {
   Column,
   CreateDateColumn,
@@ -21,6 +22,13 @@ export class Application {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @Column({
+    type: 'enum',
+    enum: EnvironmentType,
+    default: EnvironmentType.DEVELOPMENT,
+  })
+  environment: EnvironmentType;
 
   @CreateDateColumn()
   createdAt: Date;

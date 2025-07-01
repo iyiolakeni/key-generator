@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1751195314572,
@@ -12,6 +12,14 @@
                 {
                     "date": 1751196020204,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n } from 'typeorm';\r\n \r\n @Entity()\r\n export class Application {\r\n-  @PrimaryGeneratedColumn()\r\n+  @PrimaryGeneratedColumn('uuid')\r\n   id: string;\r\n \r\n   @Column()\r\n   name: string;\r\n"
+                },
+                {
+                    "date": 1751364707075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { Key } from 'src/key/entities/key.entity';\r\n+import { EnvironmentType } from 'src/key/enum';\r\n import {\r\n   Column,\r\n   CreateDateColumn,\r\n   Entity,\r\n@@ -21,8 +22,11 @@\n \r\n   @Column({ default: true })\r\n   isActive: boolean;\r\n \r\n+  @Column({ type: 'enum', enum: EnvironmentType, default: EnvironmentType.DEVELOPMENT })\r\n+    environment: EnvironmentType\r\n+\r\n   @CreateDateColumn()\r\n   createdAt: Date;\r\n \r\n   @UpdateDateColumn()\r\n"
+                },
+                {
+                    "date": 1751364722140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,14 @@\n \r\n   @Column({ default: true })\r\n   isActive: boolean;\r\n \r\n-  @Column({ type: 'enum', enum: EnvironmentType, default: EnvironmentType.DEVELOPMENT })\r\n-    environment: EnvironmentType\r\n+  @Column({\r\n+    type: 'enum',\r\n+    enum: EnvironmentType,\r\n+    default: EnvironmentType.DEVELOPMENT,\r\n+  })\r\n+  environment: EnvironmentType;\r\n \r\n   @CreateDateColumn()\r\n   createdAt: Date;\r\n \r\n"
                 }
             ],
             "date": 1751195314572,

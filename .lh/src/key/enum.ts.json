@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1751194750131,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751364616074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,4 +5,10 @@\n   RANDOM_TOKEN = 'random_token',\r\n   UUID = 'uuid',\r\n   CUSTOM = 'custom',\r\n }\r\n+\r\n+export enum EnvironmentType {\r\n+  DEVEELOPMENT = 'DEVELOPMENT',\r\n+  PRODUCTION = 'PRODUCTION',\r\n+  STAGING = 'STAGING',\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1751364722122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n   CUSTOM = 'custom',\r\n }\r\n \r\n export enum EnvironmentType {\r\n-  DEVEELOPMENT = 'DEVELOPMENT',\r\n+  DEVELOPMENT = 'DEVELOPMENT',\r\n   PRODUCTION = 'PRODUCTION',\r\n   STAGING = 'STAGING',\r\n }\r\n"
                 }
             ],
             "date": 1751194750131,

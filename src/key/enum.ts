@@ -6,3 +6,9 @@ export enum KeyType {
   UUID = 'uuid',
   CUSTOM = 'custom',
 }
+
+export enum EnvironmentType {
+  DEVELOPMENT = 'DEVELOPMENT',
+  PRODUCTION = 'PRODUCTION',
+  STAGING = 'STAGING',
+}
