@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1751199194426,
@@ -24,6 +24,18 @@
                 {
                     "date": 1751371297209,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -173,5 +173,27 @@\n         `Failed to activate application with id ${id}: ${error.message}`,\r\n       );\r\n     }\r\n   }\r\n+\r\n+  async delete(id: string): Promise<UpdatedResponse | NotFoundErrorResponse | UnexpectedErrorResponse> {\r\n+    const application = await this.appRepo.findOne({ where: { id } });\r\n+\r\n+    if (!application) {\r\n+      return new NotFoundErrorResponse(`Application with id ${id} not found`);\r\n+    }\r\n+\r\n+    try {\r\n+      await this.appRepo.delete(id);\r\n+      return new UpdatedResponse(\r\n+        `Application with id ${id} deleted successfully`,\r\n+        200,\r\n+      );\r\n+    } catch (error) {\r\n+      return new UnexpectedErrorResponse(\r\n+        `Failed to delete application with id ${id}: ${error.message}`,\r\n+      );\r\n+    }\r\n+\r\n+  }\r\n+\r\n }\r\n"
+                },
+                {
+                    "date": 1751381002947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,9 @@\n   > {\r\n     try {\r\n       const applications = await this.appRepo.find({\r\n         where: { isActive: true },\r\n+        relations: ['key']\r\n       });\r\n       if (applications.length === 0) {\r\n         return new NotFoundErrorResponse('No applications found');\r\n       }\r\n"
+                },
+                {
+                    "date": 1751382151257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n   > {\r\n     try {\r\n       const applications = await this.appRepo.find({\r\n         where: { isActive: true },\r\n-        relations: ['key'],\r\n+        relations: ['keys'],\r\n       });\r\n       if (applications.length === 0) {\r\n         return new NotFoundErrorResponse('No applications found');\r\n       }\r\n"
+                },
+                {
+                    "date": 1751383245893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         `Application ${savedApplication.name} created successfully`,\r\n       );\r\n     } catch (error) {\r\n       return new UnexpectedErrorResponse(\r\n-        `Failed to create application: ${error.message}`,\r\n+        `Failed to create application: ${error.message} `,\r\n       );\r\n     }\r\n   }\r\n \r\n"
                 }
             ],
             "date": 1751199194426,

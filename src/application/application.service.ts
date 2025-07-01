@@ -42,7 +42,7 @@ export class ApplicationService {
       );
     } catch (error) {
       return new UnexpectedErrorResponse(
-        `Failed to create application: ${error.message}`,
+        `Failed to create application: ${error.message} `,
       );
     }
   }
@@ -53,6 +53,7 @@ export class ApplicationService {
     try {
       const applications = await this.appRepo.find({
         where: { isActive: true },
+        relations: ['keys'],
       });
       if (applications.length === 0) {
         return new NotFoundErrorResponse('No applications found');
