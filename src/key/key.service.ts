@@ -320,4 +320,39 @@ export class KeyService {
       return new NotFoundErrorResponse('An unexpected error occurred');
     }
   }
+
+  async deleteAllKeysByApplicationId(
+    applicationId: string,
+  ): Promise<
+    CreatedResponse | NotFoundErrorResponse | BadRequestErrorResponse
+  > {
+    if (!applicationId) {
+      return new BadRequestErrorResponse('Application ID is required');
+    }
+
+    try {
+      const application =
+        await this.sharedService.findApplicationById(applicationId);
+
+      if (
+        application instanceof BadRequestErrorResponse ||
+        application instanceof NotFoundErrorResponse
+      ) {
+        return new NotFoundErrorResponse('Application not found');
+      }
+
+      await this.keyRepo.delete({ applicationId: applicationId });
+
+      return new CreatedResponse(
+        'All keys for the application deleted successfully',
+        200,
+      );
+    } catch (error) {
+      if (error.code === '23503') {
+        // Foreign key violation error code
+        return new NotFoundErrorResponse('Application not found');
+      }
+      return new BadRequestErrorResponse('An unexpected error occurred');
+    }
+  }
 }

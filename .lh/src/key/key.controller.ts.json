@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1751210241069,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751442900050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,5 +58,10 @@\n   @Delete('delete/:id')\r\n   remove(@Param('id') id: string) {\r\n     return this.keyService.remove(id);\r\n   }\r\n+\r\n+  @Delete('delete-by-application/:applicationId')\r\n+  removeByApplication(@Param('applicationId') applicationId: string) {\r\n+    return this.keyService.deleteAllKeysByApplicationId(applicationId);\r\n+  }\r\n }\r\n"
                 }
             ],
             "date": 1751210241069,

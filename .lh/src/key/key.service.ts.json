@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1751206577387,
@@ -60,6 +60,10 @@
                 {
                     "date": 1751210241122,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -231,9 +231,9 @@\n       return new BadRequestErrorResponse('An unexpected error occurred');\r\n     }\r\n   }\r\n \r\n-  async deativateKey(\r\n+  async deactivateKey(\r\n     id: string,\r\n   ): Promise<\r\n     UpdatedResponse | NotFoundErrorResponse | BadRequestErrorResponse\r\n   > {\r\n@@ -266,9 +266,9 @@\n       return new BadRequestErrorResponse('An unexpected error occurred');\r\n     }\r\n   }\r\n \r\n-  async ativateKey(\r\n+  async activateKey(\r\n     id: string,\r\n   ): Promise<\r\n     UpdatedResponse | NotFoundErrorResponse | BadRequestErrorResponse\r\n   > {\r\n"
+                },
+                {
+                    "date": 1751442865251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -319,5 +319,40 @@\n     } catch (error) {\r\n       return new NotFoundErrorResponse('An unexpected error occurred');\r\n     }\r\n   }\r\n+\r\n+  async deleteAllKeysByApplicationId(\r\n+    applicationId: string,\r\n+  ): Promise<\r\n+    CreatedResponse | NotFoundErrorResponse | BadRequestErrorResponse\r\n+  > {\r\n+    if (!applicationId) {\r\n+      return new BadRequestErrorResponse('Application ID is required');\r\n+    }\r\n+\r\n+    try {\r\n+      const application =\r\n+        await this.sharedService.findApplicationById(applicationId);\r\n+\r\n+      if (\r\n+        application instanceof BadRequestErrorResponse ||\r\n+        application instanceof NotFoundErrorResponse\r\n+      ) {\r\n+        return new NotFoundErrorResponse('Application not found');\r\n+      }\r\n+\r\n+      await this.keyRepo.delete({ applicationId: applicationId });\r\n+\r\n+      return new CreatedResponse(\r\n+        'All keys for the application deleted successfully',\r\n+        200,\r\n+      );\r\n+    } catch (error) {\r\n+      if (error.code === '23503') {\r\n+        // Foreign key violation error code\r\n+        return new NotFoundErrorResponse('Application not found');\r\n+      }\r\n+      return new BadRequestErrorResponse('An unexpected error occurred');\r\n+    }\r\n+  }\r\n }\r\n"
                 }
             ],
             "date": 1751206577387,

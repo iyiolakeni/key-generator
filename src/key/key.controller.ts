@@ -59,4 +59,9 @@ export class KeyController {
   remove(@Param('id') id: string) {
     return this.keyService.remove(id);
   }
+
+  @Delete('delete-by-application/:applicationId')
+  removeByApplication(@Param('applicationId') applicationId: string) {
+    return this.keyService.deleteAllKeysByApplicationId(applicationId);
+  }
 }
